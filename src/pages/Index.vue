@@ -12,28 +12,18 @@
           <template #append> <q-icon name="mdi-magnify"></q-icon> </template>
         </q-input>
       </q-toolbar>
-      <q-list bordered>
-        <q-item>
-          <q-item-section side>
-            <q-checkbox :model-value="true"> </q-checkbox>
-          </q-item-section>
-          <q-item-section> Go Shopping </q-item-section>
-          <q-item-section side>
-            <q-btn round size="sm" flat icon="mdi-delete"></q-btn>
-          </q-item-section>
-        </q-item>
-      </q-list>
+      <TodosList bordered />
     </q-card>
     <q-card class="col-xs-3">
       <div>
         <q-toolbar class="bg-primary">
-          <q-btn
+          <CreateTodoButton
             fab
             style="margin-bottom: -42px"
             class="q-ml-lg"
             color="secondary"
             icon="mdi-plus"
-          ></q-btn>
+          />
         </q-toolbar>
       </div>
     </q-card>
@@ -41,9 +31,15 @@
 </template>
 <script>
 import { defineComponent } from "vue";
+import CreateTodoButton from "components/CreateTodoButton.vue";
+import TodosList from "components/TodosList.vue";
 
 export default defineComponent({
   name: "PageIndex",
+  components: {
+    CreateTodoButton,
+    TodosList,
+  },
   data() {
     return {
       search: "",
